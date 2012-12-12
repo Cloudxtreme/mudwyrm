@@ -1,0 +1,43 @@
+$bg-color-0: #000
+$bg-color-1: #333
+$bg-color-2: #2a2a2a
+$bg-selection-color: #334
+$bg-shadow-color: #333
+$border-color: #444
+$fg-shadow-color: #222
+$fg-color-1: #ccc
+$fg-color-2: #aaa
+$fg-disabled-color: #666
+
+$font-scale: 125%
+
+$content-width: 20em
+
+=text-input
+  +border-radius
+  +box-shadow(rgba(0, 0, 0, 0.5), 2px, 3px, 12px, 0, inset)
+  +text-shadow(rgba(0, 0, 0, 0.25), 0, 1px, 3px)
+  background-color: $bg-color-2
+  border: 1px solid rgba(0, 0, 0, 0.25)
+  color: $fg-color-1
+  padding: 0.3em
+  &[readonly]
+    color: $fg-disabled-color
+
+=button
+  +border-radius
+  +box-shadow(rgba(0, 0, 0, 0.5), 0, 1px, 3px, 0)
+  +text-shadow(rgba(0, 0, 0, 0.25), 0, 1px, 3px)
+  border: 1px solid rgba(0, 0, 0, 0.25)
+  padding: 0.1em 0.3em
+  font-weight: bold
+  cursor: pointer
+  background-color: $bg-color-2
+  color: $fg-color-1
+  position: relative
+  &:hover
+    background-color: $bg-color-1
+  &:active
+    background-color: $bg-color-2
+    top: 1px
+

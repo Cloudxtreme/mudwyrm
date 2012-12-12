@@ -1,0 +1,11 @@
+/* line 1, ../sass/handheld.sass */
+* {
+  float: none;
+  background: white;
+  color: black;
+}
+
+/* line 6, ../sass/handheld.sass */
+body {
+  font-size: 80%;
+}

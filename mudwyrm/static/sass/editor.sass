@@ -1,0 +1,201 @@
+// --
+@import boilerplate
+
+@import compass/css3/border-radius
+@import compass/css3/box-shadow
+@import compass/css3/text-shadow
+@import compass/css3/gradient
+@import compass/css3/box
+@import compass/css3/box-sizing
+@import compass/utilities/text/replacement
+@import compass/utilities/lists/bullets
+@import compass/utilities/lists/horizontal-list
+@import compass/utilities/links/unstyled-link
+
+$icon-size: 22px
+$padding: 4px
+$border: 1px
+$header-height: $icon-size + 2 * ($padding + $border)
+$filetree-width: 20%
+
+html
+  overflow: auto
+  height: 100%
+
+body
+  background-color: #222222
+  color: #cccccc
+  height: 100%
+
+header
+  position: absolute
+  top: 0
+  right: 0
+  bottom: auto
+  left: 0
+  +box-sizing(border-box)
+  height: $header-height
+  +display-box
+  +box-orient(horizontal)
+  +box-align(start)
+  +linear-gradient(color-stops(#45484d, #333333))
+  padding: $padding
+  border-bottom: 1px solid #444444
+
+menu#toolbar
+  +display-box
+  +box-orient(horizontal)
+  +box-pack(end)
+  +box-sizing(border-box)
+  width: $filetree-width
+  padding: 0 0.5em
+  command
+    +border-radius(3px)
+    +box-sizing(border-box)
+    display: block
+    width: $icon-size
+    height: $icon-size
+    &:hover
+      +box-shadow(rgba(255, 255, 255, 0.25), 0, 0, 3px, 0, inset)
+      border: 1px solid rgba(0, 0, 0, 0.25)
+      background-color: rgba(0, 0, 0, 0.1)
+    &:active
+      background-color: rgba(0, 0, 0, 0.25)
+  #save
+    +replace-text("icons/disk-return-black.png")
+  #open
+    +replace-text("icons/blue-folder-horizontal-open.png")
+
+menu#tabs
+  +display-box
+  +box-orient(horizontal)
+  li
+    +border-top-radius(3px)
+    +box-sizing(border-box)
+    +box-shadow(rgba(0, 0, 0, 0.25), 1px, 2px, 3px, 0)
+    display: block
+    border: 1px solid rgba(0, 0, 0, 0.25)
+    border-bottom: 0
+    white-space: nowrap
+    margin-right: 2px
+    height: $icon-size + $padding + $border
+    background-color: rgba(0, 0, 0, 0.2)
+    &:hover
+      background-color: rgba(0, 0, 0, 0.15)
+    &:active, &.selected
+      background-color: rgba(0, 0, 0, 0)
+  a
+    +unstyled-link
+    display: block
+    padding: 0.4em
+  .modified>a:after
+    content: "*"
+    margin-left: 0.4em
+
+.context-menu
+  +no-bullets
+  +border-radius
+  +box-shadow(rgba(0, 0, 0, 0.25), 1px, 2px, 3px)
+  background-color: #333333
+  border: 1px solid #444444
+  a
+    +unstyled-link
+    display: block
+    padding: 0.5em
+    &:hover
+      background-color: #333344
+    &:first-child
+      +border-top-radius
+    &:last-child
+      +border-bottom-radius
+
+#sidebar
+  +display-box
+  +box-orient(vertical)
+  position: absolute
+  top: $header-height
+  right: 100% - $filetree-width
+  bottom: 0
+  left: 0
+  overflow: auto
+
+#filetree_folder
+  +box-flex(0)
+  margin: 0.5em
+
+#filetree
+  +box-flex(1)
+  +no-bullets
+  line-height: 130%
+  margin-left: 0
+  padding: $padding
+  li
+    padding-left: $icon-size
+  a
+    display: block
+    +unstyled-link
+    &:hover
+      background-color: #333344
+  li.context_menu_open>a
+    background-color: #2a2a3a
+  ul
+    margin-left: 0
+  .folded
+    display: none
+  .loading
+    color: #888888
+    padding-left: 0
+  .dir
+    background: image-url("icons/blue-folder-open.png") no-repeat $padding 0
+  .file
+    background: image-url("icons/blue-document-medium.png") no-repeat $padding 0
+
+#editor
+  position: absolute
+  top: $header-height
+  right: 0
+  bottom: 0
+  left: $filetree-width
+
+=button
+  +border-radius
+  +box-shadow(rgba(0, 0, 0, 0.5), 0, 1px, 3px, 0)
+  +text-shadow(rgba(0, 0, 0, 0.25), 0, 1px, 3px)
+  border: 1px solid rgba(0, 0, 0, 0.25)
+  padding: 0.1em 0.3em
+  display: inline-block
+  position: relative
+  cursor: pointer
+  background-color: #222222
+  color: #cccccc
+  font-weight: bold
+  text-align: center
+  &:hover
+    background-color: #111111
+    color: #aaaaaa
+  &:active
+    top: 1px
+
+#save_confirm
+  display: none
+  +border-radius
+  +box-shadow(#333333, 0px, 0px, 3px, 1px, false)
+  background-color: #333333
+  border: 1px solid #444444
+  padding: 1em
+  p
+    font-weight: bold
+  #buttons
+    +display-box
+    +box-orient(horizontal)
+    +box-align(start)
+    margin-top: 1em
+    a
+      +unstyled-link
+      +button
+      +box-flex(1)
+      &:not(:last-child)
+        margin-right: 1em
+
+#save_confirm_overlay
+  background-color: black

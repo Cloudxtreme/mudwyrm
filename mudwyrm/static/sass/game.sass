@@ -1,0 +1,41 @@
+// --
+@import base
+
+@import compass/utilities/general/clearfix
+
+#gamelist
+  menu
+    +no-bullets
+    counter-reset: item
+  header, li
+    +clearfix
+    padding: 0.5em
+  header
+    +border-top-radius
+    background-color: $bg-color-2
+    border-bottom: 1px solid $border-color
+  h1
+    font-weight: bold
+  li
+    border-bottom: 1px dashed $border-color
+    &:before
+      counter-increment: item
+      content: counter(item) "."
+      margin-right: 0.5em
+      float: left
+    &:hover
+      background-color: $bg-selection-color
+    &:last-child
+      +border-bottom-radius
+      border-bottom: none
+  h1
+    float: left
+  a.game
+    +unstyled-link
+    display: block
+    float: left
+  a.control
+    float: right
+    font-size: 80%
+    padding-left: 0.5em
+    

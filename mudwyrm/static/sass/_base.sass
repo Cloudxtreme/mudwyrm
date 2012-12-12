@@ -1,0 +1,92 @@
+// --
+@import boilerplate
+@import theme
+
+@import compass/css3/border-radius
+@import compass/css3/box-shadow
+@import compass/css3/text-shadow
+@import compass/css3/box
+@import compass/utilities/links/unstyled-link
+@import compass/typography/lists/bullets
+
+body
+  +text-shadow($fg-shadow-color)
+  background-color: $bg-color-0
+  color: $fg-color-1
+  font-size: $font-scale
+
+#container>header
+  background-color: $bg-color-1
+  +box-shadow($bg-shadow-color, 0px, 0px, 3px, 1px, false)
+  border: 1px solid $border-color
+  
+  &>div
+    width: $content-width
+    margin: 0.5em auto
+    +display-box
+    +box-pack(justify)
+    +box-align(baseline)
+  
+  #logo
+    +unstyled-link
+    font-size: 110%
+    font-weight: bold
+    
+  #userbar
+    font-size: 90%
+
+#main
+  +border-radius
+  +box-shadow($bg-shadow-color, 0px, 0px, 3px, 1px, false)
+  background-color: $bg-color-1
+  border: 1px solid $border-color
+  width: $content-width
+  margin: 3em auto
+   
+  &>h1
+    +border-top-radius
+    background-color: $bg-color-2
+    color: $fg-color-2
+    font-weight: bold
+    font-size: 110%
+    padding: 0.5em
+    border-bottom: 1px solid $border-color
+    text-align: center
+  
+form
+  +display-box
+  +box-orient(vertical)
+  &>*
+    margin: 0.5em
+  label
+    +box-flex(1)
+    display: block
+    margin-right: 0.5em
+  input
+    &[type=text], &[type=password], &[type=email]
+      +text-input
+      display: block
+    &[type=submit]
+      +button
+      display: block
+      margin-right: 0.5em
+  .row, .lrow
+    +display-box
+    +box-align(center)
+  .row
+    +box-pack(justify)
+  .checkbox
+    +display-box
+    +box-align(center)
+    input
+      display: block
+      margin-right: 0.3em
+  &>a
+    margin: 0 0.5em 0.5em
+    display: inline-block
+  hr
+    margin: 0.25em 0
+    border-top: 1px solid $border-color
+  .error
+    +no-bullets
+    color: red

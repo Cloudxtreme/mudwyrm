@@ -1,0 +1,5 @@
+*.db-journal
+*.pyc
+*.egg-info
+.sass-cache/
+data/*/sessions
